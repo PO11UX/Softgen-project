@@ -1,0 +1,15 @@
+<form #studentForm="ngForm" (ngSubmit)='createStudent()' novalidate>
+    <label for="name" class="required" >student name:</label><br>
+    <input class="form-control" required type="text" id="name" name="name" [(ngModel)]="student.name"><br>
+    <label for="Surname" class="required">student Surname:</label><br>
+    <input class="form-control" required type="text" id="Surname" name="Surname" [(ngModel)]="student.surname"><br>
+    <label for="mail" class="required">student Mail:</label><br>
+    <input class="form-control" required type="email" id="mail" name="mail" #mail="ngModel" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"  [(ngModel)]="student.mail"><br>
+    <div *ngIf="mail.touched">
+      <p *ngIf="!studentForm.form.valid">This is not a valid Email!!!</p>
+    </div>
+    <label for="date" class="required">student Birthday:</label><br>
+    <input class="form-control" required type="date" id="Birthday" name="Birthday"   [(ngModel)]="student.birthday"><br>
+    <input class="btn btn-primary" type="submit" [disabled]="!studentForm.form.valid"  value="Submit" >
+  </form> 
+  

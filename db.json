@@ -1,0 +1,40 @@
+{
+  "groups": [
+    {
+      "name": "saxeliasfsg",
+      "surname": "gvari",
+      "mail": "meili@mail.com",
+      "birthday": "2022-07-01",
+      "id": 1
+    },
+    {
+      "name": "group",
+      "id": 3
+    }
+  ],
+  "teachers": [
+    {
+      "name": "სახელი",
+      "surname": "გვარი",
+      "mail": "mail@mail.com",
+      "birthday": "2014-01-10",
+      "id": 1
+    }
+  ],
+  "students": [
+    {
+      "name": "s",
+      "surname": "adf",
+      "mail": "afsgdh@gmail.com",
+      "birthday": "2022-07-06",
+      "id": 1
+    },
+    {
+      "name": "student",
+      "surname": "surname",
+      "mail": "safg@mail.com",
+      "birthday": "2022-06-30",
+      "id": 2
+    }
+  ]
+}
