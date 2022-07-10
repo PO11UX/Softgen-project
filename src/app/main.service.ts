@@ -28,6 +28,13 @@ export class MainService {
   EditGroup(body : groups){
     return this.api.put<groups[]>(`http://localhost:3000/groups/${body.id}`, body)
   }
+
+  addTeachersToGroup(body: groups, id: number){
+    return this.api.put<groups[]>(`http://localhost:3000/groups/${id}`, body)
+  }
+  addStudentsToGroup(body: groups, id: number){
+    return this.api.put<groups[]>(`http://localhost:3000/groups/${id}`, body)
+  }
   //teacherService
   CreateTeacher(body: teachers){
     return this.api.post<teachers[]>("http://localhost:3000/teachers", body );

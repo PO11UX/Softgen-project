@@ -25,4 +25,7 @@ export class GroupsCreateComponent implements OnInit {
       this.route.navigate(['groups'])
     })
   }
+  back(){
+    this.route.navigate(['groups'])
+  }
 }

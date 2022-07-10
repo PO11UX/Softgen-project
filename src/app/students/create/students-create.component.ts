@@ -28,4 +28,7 @@ export class StudentsCreateComponent implements OnInit {
       this.route.navigate(['students'])
     })
   }
+  back(){
+    this.route.navigate(['students'])
+  }
 }

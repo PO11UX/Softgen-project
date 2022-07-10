@@ -1,3 +1,4 @@
+<button class="m-4 ms-0 btn btn-dark" (click)="back()">back</button>
 <form #teacherForm="ngForm" (ngSubmit)='createTeacher()' novalidate>
     <label for="name" class="required" >Teacher name:</label><br>
     <input class="form-control" required type="text" id="name" name="name" [(ngModel)]="teacher.name"><br>

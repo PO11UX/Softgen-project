@@ -15,6 +15,7 @@ import { TeachersCreateComponent } from './teachers/create/teachers-create.compo
 import { TeachersEditComponent } from './teachers/edit/teachers-edit.component';
 import { StudentsCreateComponent } from './students/create/students-create.component';
 import { studentsEditComponent } from './students/edit/students-edit.component';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { studentsEditComponent } from './students/edit/students-edit.component';
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgSelectModule
     
   ],
   providers: [],

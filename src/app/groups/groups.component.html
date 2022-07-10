@@ -1,7 +1,7 @@
 
 <div class="container-xxl">
     
-<button class="m-4 btn btn-dark" (click)="back()">back</button>
+<button class="m-4 ms-0 btn btn-dark" (click)="back()">back</button>
     <div class="row mb-4">
         <div class="col-lg-6">
             <input
@@ -21,13 +21,17 @@
       <tr>
         <th scope="col">#</th>
         <th scope="col">Name</th>
+        <th scope="col">Teachers</th>
+        <th scope="col">Students</th>
         <th scope="col">Actions</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let item of groups">
+      <tr *ngFor="let item of groups;let i = index">
         <th scope="row">{{item.id}}</th>
         <td>{{item.name}}</td>
+        <td ><span class="me-2" *ngFor="let teacher of item.teachers">{{teacher.name}} <i role="button" class="ms-1" (click)="removeTeacher(teacher.id, i)">x</i></span></td>
+        <td ><span class="me-2" *ngFor="let students of item.students">{{students.name}}<i role="button"  class="ms-1"(click)="removeStudent(students.id, i)">x</i> </span></td>
         <td><div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
              Actions
@@ -36,10 +40,62 @@
               <a class="dropdown-item"
               (click)="editGroup(item.id)">Edit</a>
               <a class="dropdown-item"  (click)="deleteGroup(item.id)">Delete</a>
+              <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#TeachersModal" (click)="saveGroupId(i)">Add Teachers</a>
+              <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#StudentsModal" (click)="saveGroupId(i)">Add Students</a>
             </div>
           </div></td>
       </tr>
     </tbody>
   </table>
   
+</div>
+
+<!-- Teachers Modal -->
+<div class="modal fade" id="TeachersModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="TeachersLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="TeachersLabel">Add Teachers</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <ng-select [items]="teachers"
+        bindLabel="name"
+        bindValue="id"
+        [multiple]="true"
+        placeholder="Select teachers"
+        [(ngModel)]="teacherIds">
+</ng-select>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click)="addTeachersToGroup()">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Students Modal -->
+<div class="modal fade" id="StudentsModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="StudentsLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="StudentsLabel">Add Students</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <ng-select [items]="students"
+        bindLabel="name"
+        bindValue="id"
+        [multiple]="true"
+        placeholder="Select Students"
+        [(ngModel)]="studentIds">
+</ng-select>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="addStudentsToGroup()">Save</button>
+      </div>
+    </div>
+  </div>
 </div>

@@ -42,7 +42,7 @@ export class StudentsComponent implements OnInit {
   editGroup(id: number){
     this.route.navigate(['edit-student'], { queryParams: { studentId: id } });
   }
-  createTeacher(){
+  createStudent(){
     this.route.navigate(['create-student'])
   }
   back(){
